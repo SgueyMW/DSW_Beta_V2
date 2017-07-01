@@ -1,0 +1,144 @@
+
+create database ProyectoCarrito
+
+use ProyectoCarrito
+
+create table RolUsu
+(
+idRol	int primary key,
+rol		varchar(50)not null
+)
+go
+
+create table Categoria
+(
+idCategoria	int identity(1,1) primary key,
+nomCategoria	varchar(50) not null
+)
+go
+
+create table Desarrolladora
+(
+idDesarrolladora	int identity(1,1) primary key,
+nomDesarrolladora	varchar(50) not null
+)
+go
+
+create table Estado
+(
+idEstado	int identity(1,1) primary key,
+nomEstado	varchar(50) not null
+)
+go
+
+create table Genero
+(
+idGenero	int identity(1,1) primary key,
+nomGenero	varchar(50) not null
+)
+go
+
+create table Pais
+(
+idPais	int identity(1,1) primary key,
+nomPais	varchar(50) not null
+)
+go
+
+create table Plataforma
+(
+idPlataforma	int identity(1,1) primary key,
+nomPlataforma	varchar(50) not null
+)
+go
+
+create table Usuario
+(
+idUsuario	int primary key,
+usuario		varchar(50)not null,
+pwd			varchar(50)not null,
+idRol		int foreign key(idRol) references RolUsu(idRol)
+)
+go
+
+create table Videojuego
+(
+codigo				int identity(1,1) primary key,
+titulo				varchar(50)not null,
+sinopsis			varchar(500)not null,
+imagen				image null,
+idCategoria			int foreign key(idCategoria) references Categoria(idCategoria),
+idDesarrolladora	int foreign key(idDesarrolladora) references Desarrolladora(idDesarrolladora),
+idEstado			int foreign key(idEstado) references Estado(idEstado),
+idGenero			int foreign key(idGenero) references Genero(idGenero),
+idPais				int foreign key(idPais) references Pais(idPais),
+idPlataforma		int foreign key(idPlataforma) references Plataforma(idPlataforma),
+precio				decimal not null
+)
+go
+
+create table Orden
+(
+idOrden		int identity(1,1) primary key,
+FechaOrden	datetime not null,
+idUsuario	int foreign key(idUsuario) references Usuario(idUsuario),
+nombre		varchar(50)not null,
+apellido	varchar(50)not null,
+Cuidad		varchar(50)not null,
+Distrito	varchar(50)not null,
+codPostal	varchar(10)not null,
+Pais		varchar(50)not null,
+telefono	varchar(9)not null,
+email		varchar(50)not null,
+total		numeric(10,2)
+)
+go
+
+create table DetalleOrden
+(
+idDetalle	int identity(1,1) primary key,
+idOrden		int foreign key(idOrden) references Orden(idOrden),
+codigo		int foreign key(codigo) references Videojuego(codigo),
+cantidad	int not null,
+preciouni	numeric(10,2)
+)
+go
+
+create table Carrito
+(
+idRecord	int identity(1,1) primary key,
+idCarrito	varchar(50)not null,
+codigo		int foreign key(codigo) references Videojuego(codigo),
+contador	int not null,
+fechaCreado	datetime not null
+)
+go
+
+insert into RolUsu values(1, 'Administrador')
+insert into RolUsu values(2, 'Cliente')
+
+insert into Categoria values('C')
+insert into Categoria values('E')
+insert into Categoria values('T')
+insert into Categoria values('M')
+
+insert into Desarrolladora values('Activision')
+insert into Desarrolladora values('Capcom')
+insert into Desarrolladora values('Fuji Games')
+insert into Desarrolladora values('Namco')
+
+insert into Estado values('Disponible')
+insert into Estado values('No disponible')
+
+insert into Genero values('Estrategia')
+insert into Genero values('RPG')
+
+insert into Pais values('E.E.U.U.')
+insert into Pais values('Corea del Sur')
+insert into Pais values('Rumania')
+insert into Pais values('Wakanda')
+
+insert into Plataforma values('PS4')
+insert into Plataforma values('Xbox One')
+insert into Plataforma values('Wii U')
+insert into Plataforma values('PC')
