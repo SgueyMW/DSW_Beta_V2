@@ -90,7 +90,7 @@ namespace DSW_Beta_V2.Models
         public void EmptyCart()
         {
             var cartItems = storeDB.Carrito.Where(cart => cart.idCarrito == ShoppingCartId);
-            foreach(var cartItem in cartItems)
+            foreach (var cartItem in cartItems)
             {
                 storeDB.Carrito.Remove(cartItem);
             }

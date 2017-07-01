@@ -15,7 +15,7 @@
             if (recordToDelete != '') {
 
                 // Perform the ajax post
-                $.post("/ShoppingCart/RemoveFromCart", { "id": recordToDelete },
+                $.post("/CarritoCompra/RemoveFromCart", { "id": recordToDelete },
                     function (data) {
                         // Successful requests get here
                         // Update the page elements
@@ -55,7 +55,7 @@
 <h3>
     <em>Review</em> your cart:
 </h3>
-<p class="buttom">
+<p class="button">
     @Html.ActionLink("Checkout >>", "AddressAndPayment", "Checkout")
 </p>
 <div id="update-message">
@@ -82,8 +82,11 @@
         <td>
             @item.Videojuego.precio
         </td>
+        <td id="item-count-@item.idRecord">
+            @item.contador
+        </td>
         <td>
-            <a href="#" class="RemoveLink" data-id="@item.idRecord">Remove from cart</a>
+            <a href="#" class="RemoveLink" data-id="@item.idRecord">Remueve del Carrito</a>
         </td>
     </tr>
     }

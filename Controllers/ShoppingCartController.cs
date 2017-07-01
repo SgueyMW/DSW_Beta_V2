@@ -48,7 +48,7 @@ namespace DSW_Beta_V2.Controllers
                 ItemCount = itemCount,
                 DeleteId = id
             };
-            return Json(results);               
+            return Json(results);
         }
 
         // POST: ShoppingCart/Delete/5
