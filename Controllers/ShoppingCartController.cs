@@ -30,7 +30,7 @@ namespace DSW_Beta_V2.Controllers
             var addedGame = storeDB.Videojuego.Single(game => game.codigo == id);
             var cart = CarritoCompra.GetCart(this.HttpContext);
             cart.AddToCart(addedGame);
-            return View();
+            return RedirectToAction("Index");
         }
 
         // POST: ShoppingCart/Create
