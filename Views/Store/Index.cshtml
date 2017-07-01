@@ -1,0 +1,15 @@
+﻿@model IEnumerable<DSW_Beta_V2.Models.Genero>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Generos</h2>
+<p>Seleccionar de @Model.Count() Generos:</p>
+<ul>
+    @foreach (var genre in Model)
+    {
+        <li>@Html.ActionLink(genre.nomGenero, "Browse", new { genre = genre.nomGenero })</li>
+    }
+</ul>
+

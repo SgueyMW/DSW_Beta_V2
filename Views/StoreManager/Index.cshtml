@@ -1,0 +1,87 @@
+﻿@model IEnumerable<DSW_Beta_V2.Models.Videojuego>
+
+@{
+    ViewBag.Title = "Lista Carrito Compra";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sinopsis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idDesarrolladora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idEstado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idGenero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idPais)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idPlataforma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sinopsis)
+        </td> @*Agregar la imagen...la cual nos es dificil por alguna razon...*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.nomCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Desarrolladora.nomDesarrolladora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado.nomEstado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genero.nomGenero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais.nomPais)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plataforma.nomPlataforma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<DSW_Beta_V2.Models.Genero>
+
+<ul id="categories">
+    @foreach (var genre in Model)
+    {
+        <li>
+            @Html.ActionLink(genre.nomGenero,
+                 "Browse", "Store",
+                 new { Genre = genre.nomGenero}, null)
+        </li>
+    }
+</ul>
+

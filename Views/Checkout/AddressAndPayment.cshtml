@@ -1,0 +1,30 @@
+﻿@model DSW_Beta_V2.Models.Orden
+
+@{
+    ViewBag.Title = "AddressAndPayment";
+}
+
+@using (Html.BeginForm())
+{
+
+    <h2>Adress and Payment</h2>
+    <fieldset>
+        <legend>Shipping Information</legend>
+
+        @Html.EditorForModel()
+    </fieldset>
+    <fieldset>
+        <legend>Payment</legend>
+        <p>Tenemos ofertas en juegos, descuento del 5% con el código: "Waifu"</p>
+
+        <div class="editor-label">
+            @Html.Label("Promo Code")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("PromoCode")
+        </div>
+    </fieldset>
+
+    <input type="submit" value="Submit Order"/>
+}
+

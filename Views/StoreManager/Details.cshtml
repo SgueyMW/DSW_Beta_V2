@@ -1,0 +1,98 @@
+﻿@model DSW_Beta_V2.Models.Videojuego
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Videojuego</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sinopsis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sinopsis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.nomCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.nomCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desarrolladora.nomDesarrolladora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desarrolladora.nomDesarrolladora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado.nomEstado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado.nomEstado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genero.nomGenero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genero.nomGenero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais.nomPais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais.nomPais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plataforma.nomPlataforma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plataforma.nomPlataforma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

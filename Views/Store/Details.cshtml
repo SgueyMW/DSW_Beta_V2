@@ -1,0 +1,40 @@
+﻿@model DSW_Beta_V2.Models.Videojuego
+
+@{
+    ViewBag.Title = "Videojuego - " + Model.titulo;
+}
+
+<h2>@Model.titulo</h2>
+<p>
+    <img alt="@Model.titulo" src="@Model.imagen"/>
+</p>
+<div id="game-details">
+    <p>
+        <em>Categoria: </em>@Model.Categoria.nomCategoria
+    </p>
+    <p>
+        <em>Desarrolladora: </em>@Model.Desarrolladora.nomDesarrolladora
+    </p>
+    <p>
+        <em>Estado: </em>@Model.Estado.nomEstado
+    </p>
+    <p>
+        <em>Genero: </em>@Model.Genero.nomGenero
+    </p>
+    <p>
+        <em>Imagen: </em>@Model.imagen
+    </p>
+    <p>
+        <em>Pais :</em>@Model.Pais.nomPais
+    </p>
+    <p>
+        <em>Plataforma: </em>@Model.Plataforma.nomPlataforma
+    </p>
+    <p>
+        <em>Precio: </em>@String.Format("{0:F}", Model.precio)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Agregar al Carrito", "AddToCart","ShoppingCart", new { id = Model.codigo }, "")
+    </p>
+</div>
+

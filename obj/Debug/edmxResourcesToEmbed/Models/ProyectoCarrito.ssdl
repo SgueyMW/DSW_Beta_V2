@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoCarritoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Carrito">
+    <Key>
+      <PropertyRef Name="idRecord" />
+    </Key>
+    <Property Name="idRecord" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCarrito" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigo" Type="int" />
+    <Property Name="contador" Type="int" Nullable="false" />
+    <Property Name="fechaCreado" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="idCategoria" />
+    </Key>
+    <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomCategoria" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Desarrolladora">
+    <Key>
+      <PropertyRef Name="idDesarrolladora" />
+    </Key>
+    <Property Name="idDesarrolladora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomDesarrolladora" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetalleOrden">
+    <Key>
+      <PropertyRef Name="idDetalle" />
+    </Key>
+    <Property Name="idDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idOrden" Type="int" />
+    <Property Name="codigo" Type="int" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="preciouni" Type="numeric" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="idEstado" />
+    </Key>
+    <Property Name="idEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomEstado" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genero">
+    <Key>
+      <PropertyRef Name="idGenero" />
+    </Key>
+    <Property Name="idGenero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomGenero" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orden">
+    <Key>
+      <PropertyRef Name="idOrden" />
+    </Key>
+    <Property Name="idOrden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaOrden" Type="datetime" Nullable="false" />
+    <Property Name="idUsuario" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cuidad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Distrito" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codPostal" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Pais" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="total" Type="numeric" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="idPais" />
+    </Key>
+    <Property Name="idPais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomPais" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Plataforma">
+    <Key>
+      <PropertyRef Name="idPlataforma" />
+    </Key>
+    <Property Name="idPlataforma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomPlataforma" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolUsu">
+    <Key>
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="idRol" Type="int" Nullable="false" />
+    <Property Name="rol" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pwd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idRol" Type="int" />
+  </EntityType>
+  <EntityType Name="Videojuego">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sinopsis" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="imagen" Type="image" />
+    <Property Name="idCategoria" Type="int" />
+    <Property Name="idDesarrolladora" Type="int" />
+    <Property Name="idEstado" Type="int" />
+    <Property Name="idGenero" Type="int" />
+    <Property Name="idPais" Type="int" />
+    <Property Name="idPlataforma" Type="int" />
+    <Property Name="precio" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Carrito__codigo__3A81B327">
+    <End Role="Videojuego" Type="Self.Videojuego" Multiplicity="0..1" />
+    <End Role="Carrito" Type="Self.Carrito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Videojuego">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="Carrito">
+        <PropertyRef Name="codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetalleOr__codig__2C3393D0">
+    <End Role="Videojuego" Type="Self.Videojuego" Multiplicity="0..1" />
+    <End Role="DetalleOrden" Type="Self.DetalleOrden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Videojuego">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="DetalleOrden">
+        <PropertyRef Name="codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetalleOr__idOrd__2B3F6F97">
+    <End Role="Orden" Type="Self.Orden" Multiplicity="0..1" />
+    <End Role="DetalleOrden" Type="Self.DetalleOrden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orden">
+        <PropertyRef Name="idOrden" />
+      </Principal>
+      <Dependent Role="DetalleOrden">
+        <PropertyRef Name="idOrden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orden__idUsuario__286302EC">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__idRol__1DE57479">
+    <End Role="RolUsu" Type="Self.RolUsu" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RolUsu">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Videojueg__idCat__20C1E124">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Videojuego" Type="Self.Videojuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="idCategoria" />
+      </Principal>
+      <Dependent Role="Videojuego">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Videojueg__idDes__21B6055D">
+    <End Role="Desarrolladora" Type="Self.Desarrolladora" Multiplicity="0..1" />
+    <End Role="Videojuego" Type="Self.Videojuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Desarrolladora">
+        <PropertyRef Name="idDesarrolladora" />
+      </Principal>
+      <Dependent Role="Videojuego">
+        <PropertyRef Name="idDesarrolladora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Videojueg__idEst__22AA2996">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Videojuego" Type="Self.Videojuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="Videojuego">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Videojueg__idGen__239E4DCF">
+    <End Role="Genero" Type="Self.Genero" Multiplicity="0..1" />
+    <End Role="Videojuego" Type="Self.Videojuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genero">
+        <PropertyRef Name="idGenero" />
+      </Principal>
+      <Dependent Role="Videojuego">
+        <PropertyRef Name="idGenero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Videojueg__idPai__24927208">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
+    <End Role="Videojuego" Type="Self.Videojuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Videojuego">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Videojueg__idPla__25869641">
+    <End Role="Plataforma" Type="Self.Plataforma" Multiplicity="0..1" />
+    <End Role="Videojuego" Type="Self.Videojuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plataforma">
+        <PropertyRef Name="idPlataforma" />
+      </Principal>
+      <Dependent Role="Videojuego">
+        <PropertyRef Name="idPlataforma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProyectoCarritoModelStoreContainer">
+    <EntitySet Name="Carrito" EntityType="Self.Carrito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Desarrolladora" EntityType="Self.Desarrolladora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleOrden" EntityType="Self.DetalleOrden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genero" EntityType="Self.Genero" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orden" EntityType="Self.Orden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plataforma" EntityType="Self.Plataforma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolUsu" EntityType="Self.RolUsu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Videojuego" EntityType="Self.Videojuego" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Carrito__codigo__3A81B327" Association="Self.FK__Carrito__codigo__3A81B327">
+      <End Role="Videojuego" EntitySet="Videojuego" />
+      <End Role="Carrito" EntitySet="Carrito" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetalleOr__codig__2C3393D0" Association="Self.FK__DetalleOr__codig__2C3393D0">
+      <End Role="Videojuego" EntitySet="Videojuego" />
+      <End Role="DetalleOrden" EntitySet="DetalleOrden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetalleOr__idOrd__2B3F6F97" Association="Self.FK__DetalleOr__idOrd__2B3F6F97">
+      <End Role="Orden" EntitySet="Orden" />
+      <End Role="DetalleOrden" EntitySet="DetalleOrden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orden__idUsuario__286302EC" Association="Self.FK__Orden__idUsuario__286302EC">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Orden" EntitySet="Orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__idRol__1DE57479" Association="Self.FK__Usuario__idRol__1DE57479">
+      <End Role="RolUsu" EntitySet="RolUsu" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Videojueg__idCat__20C1E124" Association="Self.FK__Videojueg__idCat__20C1E124">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Videojuego" EntitySet="Videojuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Videojueg__idDes__21B6055D" Association="Self.FK__Videojueg__idDes__21B6055D">
+      <End Role="Desarrolladora" EntitySet="Desarrolladora" />
+      <End Role="Videojuego" EntitySet="Videojuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Videojueg__idEst__22AA2996" Association="Self.FK__Videojueg__idEst__22AA2996">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Videojuego" EntitySet="Videojuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Videojueg__idGen__239E4DCF" Association="Self.FK__Videojueg__idGen__239E4DCF">
+      <End Role="Genero" EntitySet="Genero" />
+      <End Role="Videojuego" EntitySet="Videojuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Videojueg__idPai__24927208" Association="Self.FK__Videojueg__idPai__24927208">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Videojuego" EntitySet="Videojuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Videojueg__idPla__25869641" Association="Self.FK__Videojueg__idPla__25869641">
+      <End Role="Plataforma" EntitySet="Plataforma" />
+      <End Role="Videojuego" EntitySet="Videojuego" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

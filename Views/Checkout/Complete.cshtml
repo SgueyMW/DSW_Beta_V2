@@ -1,0 +1,14 @@
+﻿@model int
+
+@{
+    ViewBag.Title = "Checkout Complete";
+}
+
+<h2>Checkout Complete</h2>
+
+<p>Gracias por su compra, su número de Orden es: @Model</p>
+
+<p>
+    Puede seguir comprando más juegos en nuestra web:
+    @Html.ActionLink("store", "Index", "Home")
+</p>

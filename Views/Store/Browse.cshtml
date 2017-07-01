@@ -1,0 +1,22 @@
+﻿@model DSW_Beta_V2.Models.Genero
+
+@{
+    ViewBag.Title = "Browse";
+}
+
+<div class="genre">
+    <h3><em>@Model.nomGenero</em> Games</h3>
+    
+    <ul id="game-list">
+        @foreach (var game in Model.Videojuego)
+        {
+            <li>
+                <a href="@Url.Action("Details", new { id = game.codigo })">
+                    <img alt="@game.titulo" src="@game.imagen"/>
+                    <span>@game.titulo</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+
