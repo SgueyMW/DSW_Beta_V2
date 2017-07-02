@@ -15,7 +15,7 @@
             if (recordToDelete != '') {
 
                 // Perform the ajax post
-                $.post("/CarritoCompra/RemoveFromCart", { "id": recordToDelete },
+                $.post("/ShoppingCart/RemoveFromCart", { "id": recordToDelete },
                     function (data) {
                         // Successful requests get here
                         // Update the page elements
