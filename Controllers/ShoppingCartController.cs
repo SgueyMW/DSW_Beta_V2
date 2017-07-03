@@ -42,7 +42,7 @@ namespace DSW_Beta_V2.Controllers
             int itemCount = cart.RemoveFromCart(id);
             var results = new ShoppingCartRemoveViewModel
             {
-                Message = Server.HtmlEncode(gameName) + "ha sido eliminado del carrito de compra.",
+                Message = Server.HtmlEncode(gameName) + " ha sido eliminado del carrito de compra.",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,
